@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang = "en" >
+	<!--
+		author: Nadeem Elahi
+		private paid professional email : nad@3deem.com
+		public free social media email : nadeem.elahi@gmail.com
+		rogers mobile tel : 905-481-1294
+		COPYRIGHT Jan 2025 
+	-->
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Nadeem's WebGL 3D graphics library v 02</title>
+
+		<link rel="stylesheet" href="./j00_style.css">
+		<link rel="icon" type="image/x-icon" href="./favicon.ico">
+	</head>
+	<body>
+		<div id="fullscreenPage">
+
+			<div id="fsP_fsOverlay01">
+				<canvas id="fsCanvas" width="100px" height="100px"></canvas>
+			</div>
+
+			<div id="fsP_fsOverlay02">
+				<h1>overlay</h1>
+			</div>
+
+		</div>
+
+
+		<script id="vs_basic" type="x-shader/x-vertex">
+
+			uniform float pointSize ; 
+			attribute vec4 vertex ;
+			attribute vec4 fragment ;
+			varying vec4 v_fragment ;
+
+			void main ( void ) {
+
+				gl_PointSize = pointSize ;
+				gl_Position = vertex ;
+				v_fragment = fragment ;
+			}
+
+		</script>
+		<script id="fs_basic" type="x-shader/x-fragment">
+
+			precision mediump float ;
+			varying vec4 v_fragment ;
+
+			void main ( void ) {
+
+				gl_FragColor = v_fragment ;
+
+			}
+
+		</script>
+
+		<script src="./j01_ngl.js"></script>
+
+		<script src="./j02_dataUtil.js"></script>
+		<script src="./j03_mat4x4.js"></script>
+
+		<script src="./j11_load_vf.js"></script>
+
+		<script src="./j20_objPyramid.js"></script>
+		<script src="./j21_objCube.js"></script>
+		<script src="./j21_objCubeByPlane.js"></script>
+		<script src="./j22_objPointedCube.js"></script>
+
+		<!--
+		<script src="./j31_shader_basic.js"></script>
+		-->
+		<!--
+		<script src="./j32_shader_orthographic.js"></script>
+		-->
+		<script src="./j34_shader_perspective.js"></script>
+
+		<script src="./j40_vecUtil.js"></script>
+		<script src="./j42_cpuLamp.js"></script>
+
+		<script src="./l00_app.js"></script>
+	</body>
+</html>
